@@ -1,215 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Quản Lý Phiên Bản</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin: 20px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section h2 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <title>Hệ thống quản lý phiên bản</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>Hệ Thống Quản Lý Phiên Bản</h1>
-
-    <!-- Quản lý kho lưu trữ -->
-    <div class="section">
-        <h2>Quản lý kho lưu trữ</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tên kho lưu trữ</th>
-                    <th>Mô tả</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kho lưu trữ 1</td>
-                    <td>Mô tả về kho lưu trữ 1</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Sao chép/Đồng bộ</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kho lưu trữ 2</td>
-                    <td>Mô tả về kho lưu trữ 2</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Sao chép/Đồng bộ</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <h1>Hệ thống quản lý phiên bản</h1>
+        <div class="menu">
+            <button onclick="handleRequest('repository')">Quản lý kho lưu trữ</button>
+            <button onclick="handleRequest('version')">Quản lý phiên bản</button>
+            <button onclick="handleRequest('branch')">Quản lý nhánh</button>
+            <button onclick="handleRequest('merge')">Quản lý hợp nhất</button>
+            <button onclick="handleRequest('user')">Quản lý người dùng</button>
+        </div>
+        <div id="content">
+            <!-- Nội dung xử lý sẽ hiển thị ở đây -->
+        </div>
     </div>
-
-    <!-- Quản lý phiên bản -->
-    <div class="section">
-        <h2>Quản lý phiên bản</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tên phiên bản</th>
-                    <th>Mô tả</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Phiên bản 1.0</td>
-                    <td>Mô tả về phiên bản 1.0</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Chuyển đổi</button>
-                        <button>Theo dõi thay đổi</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Phiên bản 2.0</td>
-                    <td>Mô tả về phiên bản 2.0</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Chuyển đổi</button>
-                        <button>Theo dõi thay đổi</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Quản lý nhánh -->
-    <div class="section">
-        <h2>Quản lý nhánh</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tên nhánh</th>
-                    <th>Mô tả</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nhánh chính</td>
-                    <td>Mô tả về nhánh chính</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Xóa</button>
-                        <button>Chuyển đổi</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nhánh phát triển</td>
-                    <td>Mô tả về nhánh phát triển</td>
-                    <td>
-                        <button>Tạo mới</button>
-                        <button>Xóa</button>
-                        <button>Chuyển đổi</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Quản lý hợp nhất -->
-    <div class="section">
-        <h2>Quản lý hợp nhất</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nhánh nguồn</th>
-                    <th>Nhánh đích</th>
-                    <th>Trạng thái</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nhánh phát triển</td>
-                    <td>Nhánh chính</td>
-                    <td>Chưa hợp nhất</td>
-                    <td>
-                        <button>Hợp nhất</button>
-                        <button>Giải quyết xung đột</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nhánh tính năng</td>
-                    <td>Nhánh phát triển</td>
-                    <td>Đã hợp nhất</td>
-                    <td>
-                        <button>Hợp nhất</button>
-                        <button>Giải quyết xung đột</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Quản lý người dùng -->
-    <div class="section">
-        <h2>Quản lý người dùng</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tên người dùng</th>
-                    <th>Email</th>
-                    <th>Vai trò</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Người dùng 1</td>
-                    <td>user1@example.com</td>
-                    <td>Quản trị viên</td>
-                    <td>
-                        <button>Quản lý thông tin</button>
-                        <button>Quản lý quyền truy cập</button>
-                        <button>Theo dõi hoạt động</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Người dùng 2</td>
-                    <td>user2@example.com</td>
-                    <td>Người dùng</td>
-                    <td>
-                        <button>Quản lý thông tin</button>
-                        <button>Quản lý quyền truy cập</button>
-                        <button>Theo dõi hoạt động</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
