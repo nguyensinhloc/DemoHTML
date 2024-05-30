@@ -4,90 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ Thống Quản Lý Phiên Bản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
+
+<div class="container">
     <h1>Hệ Thống Quản Lý Phiên Bản</h1>
-    <form>
-        <label for="requestType">Người dùng yêu cầu gì?</label>
-        <select id="requestType" name="requestType" onchange="showSection(this.value)">
-            <option value="">Chọn yêu cầu</option>
-            <option value="repository">Quản lý kho lưu trữ</option>
-            <option value="version">Quản lý phiên bản</option>
-            <option value="branch">Quản lý nhánh</option>
-            <option value="merge">Quản lý hợp nhất</option>
-            <option value="userAccess">Quản lý người dùng</option>
-        </select>
-    </form>
 
     <!-- Quản lý kho lưu trữ -->
-    <div id="repository" style="display:none;">
+    <div class="section">
         <h2>Quản lý kho lưu trữ</h2>
-        <label for="repositoryRequest">Yêu cầu kho lưu trữ là gì?</label>
-        <select id="repositoryRequest" name="repositoryRequest">
-            <option value="">Chọn yêu cầu</option>
-            <option value="createRepo">Tạo kho lưu trữ mới</option>
-            <option value="syncRepo">Sao chép/Đồng bộ dữ liệu</option>
-        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên kho lưu trữ</th>
+                    <th>Mô tả</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kho lưu trữ 1</td>
+                    <td>Mô tả về kho lưu trữ 1</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Sao chép/Đồng bộ</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kho lưu trữ 2</td>
+                    <td>Mô tả về kho lưu trữ 2</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Sao chép/Đồng bộ</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Quản lý phiên bản -->
-    <div id="version" style="display:none;">
+    <div class="section">
         <h2>Quản lý phiên bản</h2>
-        <label for="versionRequest">Yêu cầu phiên bản là gì?</label>
-        <select id="versionRequest" name="versionRequest">
-            <option value="">Chọn yêu cầu</option>
-            <option value="createVersion">Tạo phiên bản mới</option>
-            <option value="switchVersion">Chuyển đổi phiên bản</option>
-            <option value="trackChanges">Theo dõi thay đổi</option>
-        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên phiên bản</th>
+                    <th>Mô tả</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Phiên bản 1.0</td>
+                    <td>Mô tả về phiên bản 1.0</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Chuyển đổi</button>
+                        <button>Theo dõi thay đổi</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phiên bản 2.0</td>
+                    <td>Mô tả về phiên bản 2.0</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Chuyển đổi</button>
+                        <button>Theo dõi thay đổi</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Quản lý nhánh -->
-    <div id="branch" style="display:none;">
+    <div class="section">
         <h2>Quản lý nhánh</h2>
-        <label for="branchRequest">Yêu cầu nhánh là gì?</label>
-        <select id="branchRequest" name="branchRequest">
-            <option value="">Chọn yêu cầu</option>
-            <option value="createBranch">Tạo nhánh mới</option>
-            <option value="deleteBranch">Xóa nhánh</option>
-            <option value="switchBranch">Chuyển đổi nhánh</option>
-        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên nhánh</th>
+                    <th>Mô tả</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nhánh chính</td>
+                    <td>Mô tả về nhánh chính</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Xóa</button>
+                        <button>Chuyển đổi</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nhánh phát triển</td>
+                    <td>Mô tả về nhánh phát triển</td>
+                    <td>
+                        <button>Tạo mới</button>
+                        <button>Xóa</button>
+                        <button>Chuyển đổi</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Quản lý hợp nhất -->
-    <div id="merge" style="display:none;">
+    <div class="section">
         <h2>Quản lý hợp nhất</h2>
-        <label for="mergeRequest">Yêu cầu hợp nhất là gì?</label>
-        <select id="mergeRequest" name="mergeRequest">
-            <option value="">Chọn yêu cầu</option>
-            <option value="mergeBranch">Hợp nhất nhánh</option>
-            <option value="resolveConflicts">Giải quyết xung đột</option>
-        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nhánh nguồn</th>
+                    <th>Nhánh đích</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nhánh phát triển</td>
+                    <td>Nhánh chính</td>
+                    <td>Chưa hợp nhất</td>
+                    <td>
+                        <button>Hợp nhất</button>
+                        <button>Giải quyết xung đột</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nhánh tính năng</td>
+                    <td>Nhánh phát triển</td>
+                    <td>Đã hợp nhất</td>
+                    <td>
+                        <button>Hợp nhất</button>
+                        <button>Giải quyết xung đột</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Quản lý người dùng -->
-    <div id="userAccess" style="display:none;">
+    <div class="section">
         <h2>Quản lý người dùng</h2>
-        <label for="userRequest">Yêu cầu quyền truy cập là gì?</label>
-        <select id="userRequest" name="userRequest">
-            <option value="">Chọn yêu cầu</option>
-            <option value="manageUserInfo">Quản lý thông tin người dùng</option>
-            <option value="manageAccess">Quản lý quyền truy cập</option>
-            <option value="trackUserActivity">Theo dõi hoạt động người dùng</option>
-        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên người dùng</th>
+                    <th>Email</th>
+                    <th>Vai trò</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Người dùng 1</td>
+                    <td>user1@example.com</td>
+                    <td>Quản trị viên</td>
+                    <td>
+                        <button>Quản lý thông tin</button>
+                        <button>Quản lý quyền truy cập</button>
+                        <button>Theo dõi hoạt động</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Người dùng 2</td>
+                    <td>user2@example.com</td>
+                    <td>Người dùng</td>
+                    <td>
+                        <button>Quản lý thông tin</button>
+                        <button>Quản lý quyền truy cập</button>
+                        <button>Theo dõi hoạt động</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <script>
-        function showSection(value) {
-            document.getElementById('repository').style.display = 'none';
-            document.getElementById('version').style.display = 'none';
-            document.getElementById('branch').style.display = 'none';
-            document.getElementById('merge').style.display = 'none';
-            document.getElementById('userAccess').style.display = 'none';
-            if (value) {
-                document.getElementById(value).style.display = 'block';
-            }
-        }
-    </script>
 </body>
 </html>
